@@ -1,0 +1,41 @@
+.number {
+  width: 20%;
+  height: 30px;
+  border: solid lightgray 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.number:hover {
+  cursor: pointer;
+}
+
+.small-operator {
+  width: 45%;
+  height: 30px;
+  border: solid lightgray 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  color: black;
+}
+
+.small-operator:hover {
+  cursor: pointer;
+}
+
+.big-operator {
+  width: 100%;
+  height: 30px;
+  border: solid lightgray 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.big-operator:hover {
+  cursor: pointer;
+}
