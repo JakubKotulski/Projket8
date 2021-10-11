@@ -12,16 +12,29 @@ function App() {
     setDisplayValue(displayValue + data);
     if (data === "=") {
       if (operator === "+") {
+        setOperator("");
         setDisplayValue(String(numberValue + parseInt(displayValue, 10)));
+        setNumberValue(0);
       }
       if (operator === "-") {
+        setOperator("");
         setDisplayValue(String(numberValue - parseInt(displayValue, 10)));
+        setNumberValue(0);
       }
       if (operator === "/") {
-        setDisplayValue(String(numberValue / parseInt(displayValue, 10)));
+        if (numberValue === 0 || displayValue === "0") {
+          setDisplayValue("ERROR");
+          
+        } else {
+          setOperator("");
+          setDisplayValue(String(numberValue / parseInt(displayValue, 10)));
+          setNumberValue(0);
+        }
       }
       if (operator === "*") {
+        setOperator("");
         setDisplayValue(String(numberValue * parseInt(displayValue, 10)));
+        setNumberValue(0);
       }
     }
 
@@ -37,7 +50,6 @@ function App() {
     }
   };
 
-  console.log(displayValue, " : wartość");
   console.log(operator, " : operator");
   console.log(numberValue, " : numberValue");
 
@@ -81,7 +93,12 @@ function App() {
         </div>
 
         <div className="row">
-          <Tile className="big-operator" value="C" getChar={getChar} />
+          <div className="numbers-side">
+            <Tile className="number" value="0" getChar={getChar} />
+          </div>
+          <div className="operators-side">
+            <Tile className="big-operator" value="C" getChar={getChar} />
+          </div>
         </div>
       </div>
     </div>
